@@ -30,4 +30,6 @@ public class TestController {
 
 	        return mav;    
 	    }   
+		
+		public void checkGitCommit(){}
 }
