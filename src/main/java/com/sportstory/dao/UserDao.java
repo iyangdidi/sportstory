@@ -1,13 +1,10 @@
 package com.sportstory.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.sportstory.domain.User;
 
-public interface UserDao {
-	
-	/**
-	 * @param userId
-	 * @return User
-	 */
-	public User selectUserById(Integer userId);  
+@Repository
+public class UserDao extends BaseDao<User>{
 
 }

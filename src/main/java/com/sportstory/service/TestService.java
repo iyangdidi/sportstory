@@ -11,9 +11,5 @@ public class TestService {
 	
 	@Autowired  
     private UserDao userDao;  
-  
-    public User selectUserById(Integer userId) {  
-        return userDao.selectUserById(userId);  
-    }  
 
 }

@@ -25,8 +25,8 @@ public class TestController {
 		@RequestMapping("/check_db")
 	    public ModelAndView getIndex(){      
 	        ModelAndView mav = new ModelAndView("index");   
-	        User user = userService.selectUserById(1);  
-	        mav.addObject("user", user);   
+	        //User user = userService.selectUserById(1);  
+	        //mav.addObject("user", user);   
 
 	        return mav;    
 	    }   
