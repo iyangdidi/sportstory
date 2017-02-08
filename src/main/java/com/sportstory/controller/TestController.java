@@ -9,27 +9,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sportstory.dao.TestDao;
 import com.sportstory.domain.User;
 import com.sportstory.service.UserService;
 
 
 @Controller
-@RequestMapping("/test")
 public class TestController {
 		
 		@Autowired
 	    private UserService userService; 
+		@Autowired
+	    private TestDao testDao; 
 		
 		//private static final Logger log = Logger.getLogger(TestController.class);
+		
+		@RequestMapping("/")
+		public void test(){
+			System.out.println("test...");
+		}
 	
-		@RequestMapping("/check_db")
+		@RequestMapping("/test/mybatis")
 	    public ModelAndView getIndex(){      
 	        ModelAndView mav = new ModelAndView("index");   
-	        //User user = userService.selectUserById(1);  
-	        //mav.addObject("user", user);   
-
 	        return mav;    
 	    }   
 		
-		public void checkGitCommit(){}
+		@RequestMapping("/test/jdbc")
+		public void testJDBC(){
+			testDao.getTestTableById();
+		}
 }
