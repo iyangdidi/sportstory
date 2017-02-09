@@ -3,6 +3,9 @@ package com.sportstory.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import junit.framework.TestListener;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,7 @@ public class TestDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public void getTestTableById(){
+	public void jdbc_getTestTableById(){
 		String sql = "select * from test where id = ?";
 		Object[] args = new Object[]{1};
 		
@@ -28,6 +31,17 @@ public class TestDao {
 		Test test = (Test)testList.get(0);
 		
 		System.out.println("test/jdbc ... table content: "+test.getContent());
+	}
+	
+	@PersistenceContext
+	EntityManager entityManager;
+	public void jpa_getTestTableById(){
+		String sql = "SELECT o from Test o where id=" + 1;
+        List<Test> testList= entityManager.createQuery(sql, Test.class).getResultList();
+        
+        Test test = testList.get(0);
+        System.out.println("test/jpa ... table content: "+test.getContent());
+        
 	}
 
 }

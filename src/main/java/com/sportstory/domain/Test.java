@@ -1,6 +1,14 @@
 package com.sportstory.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="test")
 public class Test {
+	
+	@Id//不加此标签的话无法启动
 	int id;
 	String content;
 	

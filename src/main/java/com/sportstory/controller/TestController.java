@@ -38,6 +38,11 @@ public class TestController {
 		
 		@RequestMapping(UrlConstants.URE_test_jdbc)
 		public void testJDBC(){
-			testDao.getTestTableById();
+			testDao.jdbc_getTestTableById();
+		}
+		
+		@RequestMapping(UrlConstants.URE_test_jpa)
+		public void testJPA(){
+			testDao.jpa_getTestTableById();
 		}
 }
