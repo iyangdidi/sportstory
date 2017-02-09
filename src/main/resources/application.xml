@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="  
            http://www.springframework.org/schema/beans  
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
@@ -11,7 +12,7 @@
            http://www.springframework.org/schema/context  
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
      
-     <!-- 引入jdbc配置文件 -->  
+     <!-- 引入数据库配置文件 -->  
      <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -21,9 +22,7 @@
         </property>
     </bean>
     <!-- 更优雅的引入方式 -->
-    <!--  
-    <context:placeholder location="classpath:properties/*.properties"></context:placeholder>
-    -->
+    <!--  <context:placeholder location="classpath:properties/*.properties"></context:placeholder>-->
 
 	<!-- 20170208 -->
 	<!-- 配置数据源 -->
@@ -65,18 +64,31 @@
 	
 	<!-- 20170208 -->
 	<!-- jdbc配置 -->
+	<!-- 原生框架，SQL完全控制权，比MyBatis高效 -->
 	<bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy" p:targetDataSource-ref="dataSource" />
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSourceProxy"/>
 	<bean id="jdbcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSourceProxy"/>
     
-	
-
+    <!-- 20170209 -->
+    <!-- JPA配置, Hibernate提供其实现 -->
+    <!-- ORM框架，自己的查询语言SPQL -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="persistenceUnit"/>
+        <property name="persistenceXmlLocation" value="classpath:jpa/persistence.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+	<!-- 20170205 -->
+	<!-- MyBatis配置 -->
+	<!-- ORM框架, SQL完全控制权 -->
 	<!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"
 			value="com.sportstory.dao" />
 	</bean>
-
     <!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -84,7 +96,7 @@
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
 		<!-- <property name="typeAliasesPackage" value="com.tiantian.ckeditor.model" 
 			/> -->
-	</bean>
+	</bean>   
 
     <!-- 20170206 -->
 	<!-- 自动扫描注解的bean -->
