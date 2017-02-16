@@ -100,7 +100,12 @@
 
     <!-- 20170206 -->
 	<!-- 自动扫描注解的bean -->
-	<context:component-scan base-package="com.sportstory" />
+	<context:component-scan base-package="com.sportstory.dao" />
+	<context:component-scan base-package="com.sportstory.service" />
+	 <!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 稍后会创建该包：webmvct.cmd -->      
+	<context:component-scan base-package="com.sportstory.util" />   
+	<context:component-scan base-package="com.sportstory.config" /> 
+	
 	<!--  
 	<context:component-scan base-package="com.sportstory.service" />
 	-->

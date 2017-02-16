@@ -5,12 +5,9 @@ import java.util.Map;
 
 public enum ErrorCode {
 
-	OK("0", "成功"),
-	SystemError("9999", "服务器错误"),
-	PARAMTER_ERROR("9001", "参数错误"),
-	NOTMETHOD("9002", "无对应method"),
-	HTTPERROR("9003", "http请求错误");
-	
+	OK("0", "成功"), SystemError("9999", "服务器错误"), PARAMTER_ERROR("9001", "参数错误"), NOTMETHOD(
+			"9002", "无对应method"), HTTPERROR("9003", "http请求错误");
+
 	public String value;
 
 	public String memo;
@@ -33,11 +30,11 @@ public enum ErrorCode {
 	public static String get(String value) {
 		return lookup.get(value);
 	}
-	
+
 	public static ErrorCode getErrorCode(String value) {
 		return lookupErrorCode.get(value);
 	}
-	
+
 	public static Map<String, String> getAllMap() {
 		return lookup;
 	}

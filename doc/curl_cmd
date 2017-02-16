@@ -1,0 +1,2 @@
+
+curl -X POST -HContent-type:application/json;charset=utf-8 -d "{\"token\":\"22\",\"uid\":\"guest@ibm.com\"}" http://localhost:8080/sportstory/test/json

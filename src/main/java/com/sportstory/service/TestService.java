@@ -8,8 +8,8 @@ import com.sportstory.domain.User;
 
 @Service
 public class TestService {
-	
-	@Autowired  
-    private UserDao userDao;  
+
+	@Autowired
+	private UserDao userDao;
 
 }

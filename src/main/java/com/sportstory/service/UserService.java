@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import com.sportstory.dao.UserDao;
 import com.sportstory.domain.User;
 
-@Service  
-public class UserService{
+@Service
+public class UserService {
 
-	@Autowired  
-    private UserDao userDao;  
-  
+	@Autowired
+	private UserDao userDao;
+
 }

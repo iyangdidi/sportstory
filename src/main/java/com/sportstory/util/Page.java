@@ -30,13 +30,14 @@ public class Page<E> {
 		super();
 	}
 
-	public Page(int pageIndex,int maxResult) {
+	public Page(int pageIndex, int maxResult) {
 		super();
 		this.pageIndex = pageIndex;
 		this.maxResult = maxResult;
 	}
 
-	public Page(Integer pageIndex, Integer maxResult, String orderBy, String orderDir) {
+	public Page(Integer pageIndex, Integer maxResult, String orderBy,
+			String orderDir) {
 		super();
 		this.pageIndex = pageIndex;
 		this.maxResult = maxResult;
@@ -44,7 +45,8 @@ public class Page<E> {
 		this.orderDir = orderDir;
 	}
 
-	public Page(Integer pageIndex, Integer maxResult, Integer totalResult, String orderBy, String orderDir, List<E> list) {
+	public Page(Integer pageIndex, Integer maxResult, Integer totalResult,
+			String orderBy, String orderDir, List<E> list) {
 		super();
 		this.pageIndex = pageIndex;
 		this.maxResult = maxResult;
@@ -53,7 +55,7 @@ public class Page<E> {
 		this.orderDir = orderDir;
 		this.list = list;
 	}
-	
+
 	/**
 	 * 当前页数
 	 */
@@ -61,7 +63,7 @@ public class Page<E> {
 		if (pageIndex == null || maxResult == null || maxResult == 0) {
 			return 1;
 		}
-		return pageIndex/maxResult+1;
+		return pageIndex / maxResult + 1;
 	}
 
 	public Integer getPageIndex() {
@@ -75,7 +77,8 @@ public class Page<E> {
 
 	public Integer getTotalPage() {
 
-		return totalResult % getMaxResult() == 0 ? totalResult / getMaxResult() : totalResult / getMaxResult() + 1;
+		return totalResult % getMaxResult() == 0 ? totalResult / getMaxResult()
+				: totalResult / getMaxResult() + 1;
 	}
 
 	public void setTotalPage(Integer totalPage) {
@@ -130,20 +133,21 @@ public class Page<E> {
 		String lowcaseOrderDir = StringUtils.lowerCase(orderDir);
 		String[] orderDirs = StringUtils.split(lowcaseOrderDir, ',');
 		for (String orderDirStr : orderDirs) {
-			if (!Sort.DESC.equalsIgnoreCase(orderDirStr) && !Sort.ASC.equalsIgnoreCase(orderDirStr)) {
+			if (!Sort.DESC.equalsIgnoreCase(orderDirStr)
+					&& !Sort.ASC.equalsIgnoreCase(orderDirStr)) {
 				throw new RuntimeException(ErrorCode.SystemError.value);
 			}
 		}
 		this.orderDir = lowcaseOrderDir;
 	}
-	
+
 	public boolean isOrderBySetted() {
 		return StringUtils.isNotBlank(orderBy);
 	}
 
 	public List<Sort> fetchSort() {
 		List<Sort> orders = new ArrayList<Sort>();
-		if(StringUtils.isBlank(orderBy) || StringUtils.isBlank(orderDir)){
+		if (StringUtils.isBlank(orderBy) || StringUtils.isBlank(orderDir)) {
 			return orders;
 		}
 		String[] orderBys = StringUtils.split(orderBy, ',');

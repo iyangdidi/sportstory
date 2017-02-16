@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.sportstory.domain.User;
 
 @Repository
-public class UserDao extends BaseDao<User>{
+public class UserDao extends BaseDao<User> {
 
 }

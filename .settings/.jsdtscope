@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="WEB-INF/swagger/lib/handlebars-4.0.5.js|WEB-INF/swagger/lib/jquery-1.8.0.min.js|WEB-INF/swagger/lib/jquery.ba-bbq.min.js|WEB-INF/swagger/lib/jsoneditor.min.js|WEB-INF/swagger/lib/lodash.min.js|WEB-INF/swagger/lib/marked.js|WEB-INF/swagger/lib/sanitize-html.min.js|WEB-INF/swagger/swagger-ui.js|WEB-INF/swagger/swagger-ui.min.js|lib/handlebars-4.0.5.js|lib/jquery-1.8.0.min.js|lib/jquery.ba-bbq.min.js|lib/js-yaml.min.js|lib/jsoneditor.min.js|lib/lodash.min.js|lib/marked.js|lib/sanitize-html.min.js|swagger-ui.js|swagger-ui.min.js" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>
