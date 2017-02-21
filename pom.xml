@@ -259,21 +259,32 @@
 	        <version>1.3.11</version>
 	    </dependency>
 	    
+	    <!-- config redis data and client jar--> 
+        <dependency>  
+            <groupId>org.springframework.data</groupId>  
+            <artifactId>spring-data-redis</artifactId>  
+            <version>1.0.2.RELEASE</version>  
+        </dependency>      
+        <dependency>  
+            <groupId>redis.clients</groupId>  
+            <artifactId>jedis</artifactId>  
+            <version>2.1.0</version>  
+        </dependency>
 	    
         
 	</dependencies>
-	
+
 	<repositories>
 
-    <repository>
+		<repository>
 
-      <id>jcenter-release</id>
+			<id>jcenter-release</id>
 
-      <name>jcenter</name>
+			<name>jcenter</name>
 
-      <url>http://oss.jfrog.org/artifactory/oss-release-local/</url>
+			<url>http://oss.jfrog.org/artifactory/oss-release-local/</url>
 
-    </repository>
+		</repository>
 
-</repositories>
+	</repositories>
 </project>
