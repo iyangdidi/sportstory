@@ -1,5 +1,7 @@
 package com.sportstory.dao;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
@@ -9,7 +11,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
  * @author fengxm
  * 
  */
-public class BasicDao {
+public abstract class BasicDao implements Serializable{
 
 	// @Autowired
 	// rotected JdbcMysqlDao jdbcTemplateObject;
