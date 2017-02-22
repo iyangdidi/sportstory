@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import flexjson.JSON;
 
 @Entity
 @Table(name="t_ability")
@@ -18,7 +17,7 @@ public class Ability extends BaseDomain{
 	private int commentUserId;		//int(11) NOT NULL COMMENT '评价者',
 	private int commentedUserId;	//int(11) NOT NULL COMMENT '被评价人',
 	private int activityId;			//int(11) NOT NULL COMMENT '活动ID',
-	private JSON scoreInDetail;		//json NOT NULL COMMENT '根据不同的sportType,评分细则不同',
+	private String scoreInDetail;		//json NOT NULL COMMENT '根据不同的sportType,评分细则不同',
 	private int sportTypeId;
 	private String sportTypeName;	//varchar(45) NOT NULL COMMENT '运动类型',
 	private String comment;			//varchar(100) NOT NULL COMMENT '评论',
@@ -47,10 +46,10 @@ public class Ability extends BaseDomain{
 	public void setActivityId(int activityId) {
 		this.activityId = activityId;
 	}
-	public JSON getScoreInDetail() {
+	public String getScoreInDetail() {
 		return scoreInDetail;
 	}
-	public void setScoreInDetail(JSON scoreInDetail) {
+	public void setScoreInDetail(String scoreInDetail) {
 		this.scoreInDetail = scoreInDetail;
 	}
 	public int getSportTypeId() {

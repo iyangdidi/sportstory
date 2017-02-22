@@ -20,7 +20,7 @@ public class Trade extends BaseDomain{
 	private int userId;			//int(11) NOT NULL COMMENT '交易用户ID',
 	private BigDecimal price;	//decimal(10,0) DEFAULT NULL COMMENT '交易金额',
 	private int tradeType;		//int(11) DEFAULT NULL COMMENT '交易类型\n0：买视频\n1：参加活动',
-	private JSON content;		//json DEFAULT NULL COMMENT '根据type的不同，json内容类型不同',
+	private String content;		//json DEFAULT NULL COMMENT '根据type的不同，json内容类型不同',
 	
 	public int getTradeId() {
 		return tradeId;
@@ -46,10 +46,10 @@ public class Trade extends BaseDomain{
 	public void setTradeType(int tradeType) {
 		this.tradeType = tradeType;
 	}
-	public JSON getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(JSON content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 }

@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import flexjson.JSON;
 
 @Entity
 @Table(name="t_feed")
@@ -19,7 +18,7 @@ public class Feed extends BaseDomain{
 	private int feedId;				//int(11) NOT NULL AUTO_INCREMENT,
 	private int userId;				//int(11) NOT NULL COMMENT '动态产生者',
 	private int feedType;			//int(11) NOT NULL COMMENT '动态类型\n如果是活动类型的动态，需要填活动ID，和活动的状态\n0：活动动态',
-	private JSON jsonContent;		//json NOT NULL COMMENT '将动态的内容存储为Json',
+	private String jsonContent;		//json NOT NULL COMMENT '将动态的内容存储为Json',
 	private int activityId;			//int(11) NOT NULL COMMENT '如果Type为活动，则填写',
 	private int feedState;			//int(11) NOT NULL DEFAULT '0' COMMENT '如果Type为活动，则填写\n0：创建\n1：取消\n2：修改',
 	
@@ -41,10 +40,10 @@ public class Feed extends BaseDomain{
 	public void setFeedType(int feedType) {
 		this.feedType = feedType;
 	}
-	public JSON getJsonContent() {
+	public String getJsonContent() {
 		return jsonContent;
 	}
-	public void setJsonContent(JSON jsonContent) {
+	public void setJsonContent(String jsonContent) {
 		this.jsonContent = jsonContent;
 	}
 	public int getActivityId() {
