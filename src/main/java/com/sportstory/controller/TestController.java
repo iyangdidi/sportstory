@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sportstory.cons.UrlConstants;
+import com.sportstory.cons.Url;
 import com.sportstory.dao.TestDao;
 import com.sportstory.domain.User;
 import com.sportstory.domain.request.AbstractRequest;
@@ -42,29 +42,29 @@ public class TestController {
 		System.out.print(jsonString);
 	}
 	
-	@RequestMapping(UrlConstants.URE)
+	@RequestMapping(Url.URL)
 	public void test() {
 		System.out.println("test...");
 	}
 
-	@RequestMapping(UrlConstants.URE_test_mybatis)
+	@RequestMapping(Url.URL_test_mybatis)
 	public ModelAndView getIndex() {
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
 
-	@RequestMapping(UrlConstants.URE_test_jdbc)
+	@RequestMapping(Url.URL_test_jdbc)
 	public void testJDBC() {
 		testDao.jdbc_getTestTableById();
 	}
 
-	@RequestMapping(UrlConstants.URE_test_jpa)
+	@RequestMapping(Url.URL_test_jpa)
 	public void testJPA() {
 		testDao.jpa_getTestTableById();
 	}
 
 	//@ApiOperation(value = "注册", notes = "注册用户", position = 3)
-	@RequestMapping(value={UrlConstants.URE_test_json}, method = RequestMethod.POST)
+	@RequestMapping(value={Url.URL_test_json}, method = RequestMethod.POST)
 	public @ResponseBody
 	ResponseTest testJson(@RequestBody RequestTest req) {
 		ResponseTest res = new ResponseTest();

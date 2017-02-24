@@ -62,13 +62,15 @@
     <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="true" />
+                <property name="database" value="MYSQL" />
+            </bean>
+        </property>
         <property name="persistenceUnitName" value="persistenceUnit"/>
         <property name="persistenceXmlLocation" value="classpath:jpa/persistence.xml"/>
         <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="generateDdl" value="false" />
-        <property name="database" value="MYSQL"/>
     </bean>
 
     <!-- 20170206 -->
