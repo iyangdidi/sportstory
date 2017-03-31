@@ -2,14 +2,14 @@ package com.sportstory.domain.response;
 
 public abstract class AbstractResponse {
 
-	protected String status = "000";
+	protected int status = 0;
 	protected String content = "成功";
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
