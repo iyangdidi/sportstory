@@ -1,8 +1,8 @@
 package com.sportstory.domain;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.annotation.Generated;
 import javax.persistence.Column;
@@ -62,6 +62,24 @@ public class User extends BaseDomain{
 	private BigDecimal wallet;			//decimal(10,0) NOT NULL DEFAULT '0' COMMENT '钱包余额',
 	@Column(nullable=false, columnDefinition="int")
 	private int isForbiden;				//int(11) NOT NULL DEFAULT '0' COMMENT '是否被禁止（用户可能被举报，核实后，可以禁止用户）\n0：没有被禁止\n1：禁止',
+	
+	@Column(nullable=false, columnDefinition="DATETIME")
+	private Timestamp createTime;		//datetime NOT NULL,
+	@Column(nullable=false, columnDefinition="DATETIME")
+	private Timestamp updateTime;		//datetime NOT NULL,
+	
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
 	
 	public String getUid() {
 		return uid;

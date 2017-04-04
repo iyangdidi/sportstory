@@ -76,8 +76,15 @@ public class BaseDao<T> {
 	}	
 	
 	//添加一个PO
+	@Transactional
 	public void add(T entity){
-		em.persist(entity);
+		try {			
+			em.persist(entity);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 	}
 	
     @Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)  

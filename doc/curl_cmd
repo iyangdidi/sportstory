@@ -1,3 +1,6 @@
 D:\SportStory\newspring\curl
 
 curl -X POST -HContent-type:application/json;charset=utf-8 -d "{\"token\":\"22\",\"uid\":\"guest@ibm.com\"}" http://localhost:8080/sportstory/test/json
+
+//http://localhost:8080/sportstory/user/logon
+curl -X POST -HContent-type:application/json;charset=utf-8 -d "{\"user\":{\"address\":\"清华大学11-302\",\"name\":\"杨迪\",\"password\":\"123456\",\"uid\":\"20170404130109503000\",\"headImageUrl\":\"http://7u2ouq.com2.z0.glb.qiniucdn.com/headimage.png\",\"backgourdUrl\":\"http://7u2r5d.com2.z0.glb.qiniucdn.com/background1.jpg\",\"phone\":\"15652960625\",\"city\":\"北京市\",\"nickname\":\"迪迪加油\",\"wallet\":0,\"province\":\"北京\",\"userGroup\":0,\"isForbiden\":0,\"stature\":170,\"email\":\"iyangdi@yeah.net\",\"birthday\":60657609600000,\"district\":\"海淀区\",\"assignment\":\"我最漂亮\",\"gender\":0,\"weight\":50,\"createTime\":1491282069504,\"updateTime\":1491282069504},\"token\":\"qwetryuigffgfhjk\",\"uid\":\"20170404130109503000\"}" http://localhost:8080/sportstory/user/logon
