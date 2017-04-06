@@ -1,6 +1,7 @@
-package com.sportstory.domain.request;
+package com.sportstory.domain.request.user;
 
 import com.sportstory.domain.User;
+import com.sportstory.domain.request.AbstractRequest;
 
 public class RequestLogon extends AbstractRequest{
 

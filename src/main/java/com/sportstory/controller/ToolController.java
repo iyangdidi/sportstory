@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sportstory.cons.Url;
 import com.sportstory.domain.User;
-import com.sportstory.domain.request.RequestLogon;
 import com.sportstory.domain.request.user.RequestLogin;
+import com.sportstory.domain.request.user.RequestLogon;
 import com.sportstory.util.IdUtil;
 import com.sportstory.util.JsonUtil;
 
