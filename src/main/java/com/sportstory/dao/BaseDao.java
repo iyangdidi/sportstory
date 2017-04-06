@@ -24,6 +24,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 public class BaseDao<T> {
+	
+	public String wheresql = " where 1=1 and ";
+	public String ordersql;
+	Object[] params;
 
 	private Class<T> entityClass;
 	

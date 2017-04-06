@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sportstory.cons.Url;
 import com.sportstory.domain.User;
 import com.sportstory.domain.request.RequestLogon;
+import com.sportstory.domain.request.user.RequestLogin;
 import com.sportstory.util.IdUtil;
 import com.sportstory.util.JsonUtil;
 
@@ -62,15 +63,23 @@ public class ToolController {
 		request.setToken("qwetryuigffgfhjk");
 		request.setUser(user);
 		
-		String jsonString = JsonUtil.toJson(request);	
-		this.formatCurl(jsonString);
+		this.formatCurl(Url.URL_user_logon,request);
 	}
 	
-	public void formatCurl(String jsonString){
+	@RequestMapping("/curl")
+	public void getCurl_user_login(){
+		RequestLogin request = new RequestLogin();
+		request.setPhone("15652960625");
+		request.setPassword("123456");
+		this.formatCurl("/user/login", request);
+	}
+	
+	public void formatCurl(String urlTail, Object request){
+		String jsonString = JsonUtil.toJson(request);
 		jsonString.subSequence(1, jsonString.length()-2);
 		jsonString = jsonString.replace("\"", "\\\"");
 		jsonString = "\""+jsonString+"\"";
-		String curl = head + jsonString + urlhead + Url.URL_user_logon;
+		String curl = head + jsonString + urlhead + urlTail;
 		System.out.println("curl--------------");
 		System.out.println(curl);
 	}

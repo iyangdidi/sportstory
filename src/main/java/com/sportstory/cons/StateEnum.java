@@ -3,7 +3,9 @@ package com.sportstory.cons;
 public enum StateEnum {
 	Success("成功", 0),
 	Registed("用户已经注册",1),
-	ParamError("参数错误",2);
+	ParamError("参数错误",2),
+	Error("错误",3),
+	LoginError("登陆错误",4);
 	
 	  // 成员变量
     private String name;
