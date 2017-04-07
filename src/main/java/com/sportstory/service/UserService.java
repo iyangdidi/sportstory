@@ -27,9 +27,9 @@ public class UserService {
 	}
 	
 	//检查用户是否已经注册
-	public boolean isUserRegisted(User user){
+	public boolean isUserRegisted(String phone){
 		
-		if(null!=userDao.findUserByPhone(user.getPhone())){
+		if(null!=userDao.findUserByPhone(phone)){
 			return true;
 		}
 		

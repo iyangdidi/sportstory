@@ -197,5 +197,4 @@ public class BaseDao<T> {
     public List selectQuery(String wheresql, Object[] queryParams){
     	return selectQuery(wheresql, queryParams, "");
     }
-
 }

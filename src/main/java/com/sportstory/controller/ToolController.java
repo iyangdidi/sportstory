@@ -61,7 +61,7 @@ public class ToolController {
 		
 		request.setUid(uid);
 		request.setToken("qwetryuigffgfhjk");
-		request.setUser(user);
+		//request.setUser(user);
 		
 		this.formatCurl(Url.URL_user_logon,request);
 	}

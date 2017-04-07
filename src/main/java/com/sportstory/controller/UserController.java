@@ -70,20 +70,26 @@ public class UserController {
 		ResponseCommon response = new ResponseCommon();
 		
 		//检查是否已经注册
-		if(userService.isUserRegisted(request.getUser())){
+		if(userService.isUserRegisted(request.getPhone())){
 			response.setStatus(StateEnum.Registed.getIndex());
 			response.setContent(StateEnum.Registed.getName());
 		}else{
 			try{
-				userService.addUser(request.getUser());
+				//插入用户
+				User user = new User();
+				user.setPhone(request.getPhone());
+				user.setPassword(request.getPassword());
+				userService.addUser(user);
+				//插入token
+				//TODO
+				//返回用户token
+				//TODO
 			}catch(Exception e){
 				e.printStackTrace();
 				response.setStatus(StateEnum.ParamError.getIndex());
 				response.setContent(StateEnum.ParamError.getName());
-			}
-			
-		}
-		
+			}			
+		}		
 		return response;
 	}
 }
