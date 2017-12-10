@@ -1,4 +1,6 @@
 # Project Background
+time: 2016.11 ~ 2017.03
+
 This is a start-up project with my friends.
 There are 5 people in our team: 
 1 CEO from Tsinghua University whose research work related to sports, he is a Malaysia.
