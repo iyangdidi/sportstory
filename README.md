@@ -7,10 +7,10 @@ There are 5 people in our team:
 1 Project Organizer from Beijing Sport University
 
 # Package Descrition
-doc package：
+"doc" package：
 there contains one file which contains the cur command lines used to test urls defined
 
-src package:
+"src" package:
 it contains all the main classes and tool classes
 
 the project achieve following functions
