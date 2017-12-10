@@ -3,10 +3,10 @@ time: 2016.11 ~ 2017.03
 
 This is a start-up project with my friends.
 There are 5 people in our team: 
-1 CEO from Tsinghua University whose research work related to sports, he is a Malaysia.
-1 CTO (me) from School of software Tsinghua University
-1 UI and 1 UE both from School of Art of Tsinghua University
-1 Project Organizer from Beijing Sport University
+<br/>1 CEO from Tsinghua University whose research work related to sports, he is a Malaysia.
+<br/>1 CTO (me) from School of software Tsinghua University
+<br/>1 UI and 1 UE both from School of Art of Tsinghua University
+<br/>1 Project Organizer from Beijing Sport University
 
 # Package Descrition
 "doc" package：
